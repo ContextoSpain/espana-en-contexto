@@ -68,3 +68,7 @@ ul.arts{list-style:none;padding-left:0;margin:.4em 0}
 border:1px solid var(--linea);border-radius:6px;padding:0 .35em;margin-right:.25em;
 font-size:.82rem;text-decoration:none;color:#555;background:#fff}
 .art-chip:hover{border-color:var(--acento);color:var(--acento)}
+.mes-lista{list-style:none;padding-left:0}
+.mes-lista li{padding:.3em 0;border-bottom:1px dashed var(--linea)}
+.mes-lista a{font-weight:600;text-decoration:none}
+.chip-dim{border-color:var(--marca);color:var(--marca)}

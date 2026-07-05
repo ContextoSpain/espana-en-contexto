@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hemeroteca · España en contexto</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header>
+  <div class="cab">
+    <div class="marca"><span class="sitio">España en contexto</span>
+    <span class="sub">Actualidad contrastada: el dato, el encuadre y el trasfondo</span></div>
+    <nav><a href="index.html">Hoy</a><a href="hemeroteca.html" class="on">Hemeroteca</a><a href="anclas.html">Anclas</a><a href="constitucion.html">Constitución</a><a href="metodologia.html">Metodología</a></nav>
+  </div>
+</header>
+<main>
+<h1>Hemeroteca <span class="suave">(2348 piezas desde 2022-05)</span></h1>
+<p class="entrada">El archivo completo de la señal capturada, contra la pérdida de perspectiva: aquí las piezas no caducan a la semana. Navegable por meses y con buscador de titulares. La captura es <em>hacia delante</em> (el archivo crece desde que el sistema está en marcha); el trasfondo anterior lo cubren las <a href="anclas.html">anclas</a> y las series históricas de cobertura.</p>
+<div class="buscador"><input id="buscador" type="search" placeholder="Buscar en titulares de los últimos 90 días: amnistía, vivienda, OTAN…" aria-label="Buscar en titulares"> <span id="n-res" class="nota"></span></div>
+<div id="resultados"></div>
+<section><h2>Archivo por meses</h2><ul class="mes-lista">
+<li><a href="hemeroteca/2032-05.html">Mayo de 2032</a> <span class="suave">— 1 piezas</span></li>
+<li><a href="hemeroteca/2028-12.html">Diciembre de 2028</a> <span class="suave">— 1 piezas</span></li>
+<li><a href="hemeroteca/2027-11.html">Noviembre de 2027</a> <span class="suave">— 1 piezas</span></li>
+<li><a href="hemeroteca/2026-07.html">Julio de 2026</a> <span class="suave">— 746 piezas</span></li>
+<li><a href="hemeroteca/2026-06.html">Junio de 2026</a> <span class="suave">— 1587 piezas</span></li>
+<li><a href="hemeroteca/2026-05.html">Mayo de 2026</a> <span class="suave">— 1 piezas</span></li>
+<li><a href="hemeroteca/2022-06.html">Junio de 2022</a> <span class="suave">— 10 piezas</span></li>
+<li><a href="hemeroteca/2022-05.html">Mayo de 2022</a> <span class="suave">— 1 piezas</span></li>
+</ul></section>
+<p class="nota">Cada pieza muestra su fecha de <em>publicación</em> (si el medio no la da, la de captura). El buscador cubre los últimos 90 días para mantenerlo ligero; el archivo mensual, todo.</p>
+
+<script>
+(function(){
+  function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  var caja = document.getElementById('buscador');
+  var nres = document.getElementById('n-res');
+  var zona = document.getElementById('resultados');
+  if(!caja) return;
+  var datos = null, cargando = false;
+  function pinta(lista, q){
+    zona.textContent = '';
+    var tope = Math.min(lista.length, 200);
+    for (var i = 0; i < tope; i++){
+      var p = lista[i];
+      var art = document.createElement('article'); art.className = 'pieza';
+      var h = document.createElement('h4');
+      var a = document.createElement('a');
+      if (/^https?:/i.test(p.u)) { a.href = p.u; a.target = '_blank'; a.rel = 'noopener'; }
+      a.textContent = p.t; h.appendChild(a); art.appendChild(h);
+      var m = document.createElement('p'); m.className = 'meta';
+      m.textContent = p.f + ' (' + p.o + ') · ' + p.d + ' · ' + (p.m || []).join(' · ');
+      art.appendChild(m); zona.appendChild(art);
+    }
+    nres.textContent = q ? (lista.length + ' coincidencias en los últimos 90 días' +
+      (lista.length > tope ? ' (mostrando ' + tope + ')' : '')) : '';
+  }
+  function filtra(){
+    var q = norm(caja.value.trim());
+    if (!q){ pinta([], ''); return; }
+    var res = datos.filter(function(p){ return norm(p.b).indexOf(q) !== -1; });
+    pinta(res, q);
+  }
+  caja.addEventListener('input', function(){
+    if (datos){ filtra(); return; }
+    if (cargando) return;
+    cargando = true; nres.textContent = 'Cargando índice…';
+    fetch('hemeroteca/indice.json').then(function(r){ return r.json(); })
+      .then(function(j){ datos = j; filtra(); })
+      .catch(function(){ nres.textContent = 'No se pudo cargar el índice; usa el archivo mensual de abajo.'; });
+  });
+})();
+</script>
+
+</main>
+<footer>
+  <p>Generado el 2026-07-05 20:43 · Proyecto personal e independiente: sin afiliación, sin publicidad,
+  con <a href="metodologia.html">metodología pública</a>.</p>
+  <p class="nota">Los titulares enlazan a su medio; los textos pertenecen a sus autores.
+  Las etiquetas, el contraste y las anclas son análisis propio.</p>
+</footer>
+</body>
+</html>
