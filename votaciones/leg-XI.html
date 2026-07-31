@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Votaciones XI · España en contexto</title>
+<link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+<header>
+  <div class="cab">
+    <div class="marca"><span class="sitio">España en contexto</span>
+    <span class="sub">Actualidad contrastada: el dato, el encuadre y el trasfondo</span></div>
+    <nav><a href="../index.html">Hoy</a><a href="../hemeroteca.html">Hemeroteca</a><a href="../votaciones.html" class="on">Votaciones</a><a href="../anclas.html">Anclas</a><a href="../constitucion.html">Constitución</a><a href="../metodologia.html">Metodología</a></nav>
+  </div>
+</header>
+<main>
+<h1>Votaciones · legislatura XI <span class="suave">(2016)</span></h1>
+<p class="entrada">Voto nominal oficial de esta legislatura, por cámara y mes. El <strong>grupo y el voto</strong> son el dato oficial; la <strong>formación</strong> es adscripción propia. Los votos sin resolver se muestran <em>aparte</em>, nunca se adjudican. <a href="../votaciones.html">← Todas las legislaturas</a></p>
+<div class="buscador"><input id="buscador" type="search" placeholder="Buscar en los títulos de la legislatura XI…" aria-label="Buscar votaciones"> <span id="n-res" class="nota"></span></div>
+<div id="resultados"></div>
+<section><h2>Congreso <span class="suave">(35 votaciones)</span></h2>
+<h3 class="anio">2016</h3><div class="mes-chips">
+<a class="mes-chip" href="congreso-XI-2016-04.html">Abril <span class="n">· 22</span></a>
+<a class="mes-chip" href="congreso-XI-2016-03.html">Marzo <span class="n">· 13</span></a>
+</div>
+</section>
+<section><h2>Senado <span class="suave">(21 votaciones)</span></h2>
+<h3 class="anio">2016</h3><div class="mes-chips">
+<a class="mes-chip" href="senado-XI-2016-04.html">Abril <span class="n">· 9</span></a>
+<a class="mes-chip" href="senado-XI-2016-03.html">Marzo <span class="n">· 12</span></a>
+</div>
+</section>
+
+<script>
+(function(){
+  function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  var caja=document.getElementById('buscador'), nres=document.getElementById('n-res'),
+      zona=document.getElementById('resultados');
+  if(!caja) return;
+  var datos=null, cargando=false;
+  function pinta(lista,q){
+    zona.textContent='';
+    var tope=Math.min(lista.length,200);
+    for(var i=0;i<tope;i++){
+      var p=lista[i];
+      var art=document.createElement('article'); art.className='pieza';
+      var h=document.createElement('h4');
+      var a=document.createElement('a'); a.href=p.file; a.textContent=p.t||'(sin título)';
+      h.appendChild(a); art.appendChild(h);
+      var m=document.createElement('p'); m.className='meta';
+      m.textContent=p.c+' · sesión '+p.s+', votación '+p.n+' · '+p.f;
+      art.appendChild(m); zona.appendChild(art);
+    }
+    nres.textContent=q?(lista.length+' coincidencias'+(lista.length>tope?' (mostrando '+tope+')':'')):'';
+  }
+  function filtra(){
+    var q=norm(caja.value.trim());
+    if(!q){pinta([],'');return;}
+    var res=datos.filter(function(p){return norm(p.b).indexOf(q)!==-1;});
+    pinta(res,q);
+  }
+  caja.addEventListener('input',function(){
+    if(datos){filtra();return;}
+    if(cargando)return;
+    cargando=true; nres.textContent='Cargando índice…';
+    fetch('indice-XI.json').then(function(r){return r.json();})
+      .then(function(j){datos=j; filtra();})
+      .catch(function(){nres.textContent='No se pudo cargar el índice; usa el archivo mensual de abajo.';});
+  });
+})();
+</script>
+
+</main>
+<footer>
+  <p>Generado el 2026-08-01 00:03 · Proyecto personal e independiente: sin afiliación, sin publicidad,
+  con <a href="../metodologia.html">metodología pública</a>.</p>
+  <p class="nota">Los titulares enlazan a su medio; los textos pertenecen a sus autores.
+  Las etiquetas, el contraste y las anclas son análisis propio.</p>
+</footer>
+</body>
+</html>

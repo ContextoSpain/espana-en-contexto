@@ -81,4 +81,17 @@ font-size:.82rem;text-decoration:none;color:#555;background:#fff}
 padding:.14em 0;border-bottom:1px dotted var(--linea)}
 .rep-fam .fam-v{color:var(--suave);white-space:nowrap}
 .rep-fam.sinres .fam{font-style:italic;color:var(--suave)}
-@media (max-width:640px){.reparto{grid-template-columns:1fr}}
+.leg-mapa{list-style:none;padding-left:0;margin:1.1em 0}
+.leg-fila{display:flex;align-items:baseline;gap:.6em;flex-wrap:wrap;
+padding:.6em .8em;border:1px solid var(--linea);border-radius:8px;margin-bottom:.45em}
+.leg-fila a{font-weight:600;text-decoration:none}
+.leg-fila.vigente{border-color:var(--acento)}
+.leg-cifras{margin-left:auto;color:var(--suave);font-size:.85rem;white-space:nowrap}
+.anio{font-size:.95rem;color:var(--suave);margin:.9em 0 .35em;font-weight:600}
+.mes-chips{display:flex;flex-wrap:wrap;gap:.4em;margin:0 0 .6em}
+.mes-chip{font-size:.85rem;border:1px solid var(--linea);border-radius:16px;
+padding:.15em .75em;text-decoration:none}
+.mes-chip:hover{border-color:var(--acento);color:var(--acento)}
+.mes-chip .n{color:var(--suave)}
+@media (max-width:640px){.reparto{grid-template-columns:1fr}
+.leg-cifras{margin-left:0;flex-basis:100%}}
