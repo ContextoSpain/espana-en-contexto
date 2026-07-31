@@ -1,17 +1,17 @@
 
-:root{--tinta:#1c1c1c;--suave:#6a6a6a;--linea:#e3ded4;--fondo:#faf8f4;
---panel:#ffffff;--marca:#173f35;--acento:#8a5a2b;--pos:#2e6b46;--neg:#8c3b3b;}
+:root{--tinta:#1c1c1c;--suave:#6a6a6a;--linea:#ecd8d8;--fondo:#fdf6f6;
+--panel:#ffffff;--marca:#8c1c2b;--acento:#a5232f;--pos:#2e6b46;--neg:#8c3b3b;}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 color:var(--tinta);background:var(--fondo);line-height:1.55}
-header{background:var(--marca);color:#f4efe6}
+header{background:var(--marca);color:#fdeeee}
 .cab{max-width:960px;margin:0 auto;padding:14px 18px;display:flex;flex-wrap:wrap;
 gap:10px;align-items:baseline;justify-content:space-between}
 .sitio{font-size:1.25rem;font-weight:700;letter-spacing:.2px}
 .sub{display:block;font-size:.85rem;opacity:.85}
-nav a{color:#f4efe6;text-decoration:none;margin-left:16px;font-size:.95rem;
+nav a{color:#fdeeee;text-decoration:none;margin-left:16px;font-size:.95rem;
 border-bottom:2px solid transparent;padding-bottom:2px}
-nav a.on,nav a:hover{border-color:#d8b98a}
+nav a.on,nav a:hover{border-color:#eeb0b6}
 main{max-width:960px;margin:0 auto;padding:22px 18px 40px}
 h1{font-size:1.5rem;margin:.2em 0 .4em}
 h2{font-size:1.18rem;margin:1.4em 0 .5em;padding-bottom:.25em;
