@@ -72,3 +72,13 @@ font-size:.82rem;text-decoration:none;color:#555;background:#fff}
 .mes-lista li{padding:.3em 0;border-bottom:1px dashed var(--linea)}
 .mes-lista a{font-weight:600;text-decoration:none}
 .chip-dim{border-color:var(--marca);color:var(--marca)}
+.votacion{padding:12px 2px;border-bottom:1px solid var(--linea)}
+.votacion h4{font-size:1rem}
+.cab-of{margin:.25em 0;font-size:.9rem}
+.exp{margin:.15em 0}
+.reparto{margin:.5em 0 .2em;display:grid;grid-template-columns:1fr 1fr;gap:0 1.4em}
+.rep-fam{display:flex;justify-content:space-between;gap:.6em;font-size:.85rem;
+padding:.14em 0;border-bottom:1px dotted var(--linea)}
+.rep-fam .fam-v{color:var(--suave);white-space:nowrap}
+.rep-fam.sinres .fam{font-style:italic;color:var(--suave)}
+@media (max-width:640px){.reparto{grid-template-columns:1fr}}
