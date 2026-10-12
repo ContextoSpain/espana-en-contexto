@@ -95,9 +95,10 @@
 (function(){
   function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
   var caja=document.getElementById('buscador'), nres=document.getElementById('n-res'),
-      zona=document.getElementById('resultados');
+      zona=document.getElementById('resultados'), sel=document.getElementById('leg-sel');
   if(!caja) return;
-  var datos=null, cargando=false;
+  var cache={}, cargando=false, PRE='', PLANTILLA='indice-XII.json';
+  function fichero(){return PLANTILLA.replace('{leg}', sel?sel.value:'');}
   function pinta(lista,q){
     zona.textContent='';
     var tope=Math.min(lista.length,200);
@@ -105,7 +106,7 @@
       var p=lista[i];
       var art=document.createElement('article'); art.className='pieza';
       var h=document.createElement('h4');
-      var a=document.createElement('a'); a.href=p.file; a.textContent=p.t||'(sin título)';
+      var a=document.createElement('a'); a.href=PRE+p.file; a.textContent=p.t||'(sin título)';
       h.appendChild(a); art.appendChild(h);
       var m=document.createElement('p'); m.className='meta';
       m.textContent=p.c+' · sesión '+p.s+', votación '+p.n+' · '+p.f;
@@ -114,25 +115,27 @@
     nres.textContent=q?(lista.length+' coincidencias'+(lista.length>tope?' (mostrando '+tope+')':'')):'';
   }
   function filtra(){
-    var q=norm(caja.value.trim());
-    if(!q){pinta([],'');return;}
-    var res=datos.filter(function(p){return norm(p.b).indexOf(q)!==-1;});
-    pinta(res,q);
+    var q=norm(caja.value.trim()), datos=cache[fichero()];
+    if(!q||!datos){pinta([],'');return;}
+    pinta(datos.filter(function(p){return norm(p.b).indexOf(q)!==-1;}),q);
   }
-  caja.addEventListener('input',function(){
-    if(datos){filtra();return;}
+  function carga(){
+    var f=fichero();
+    if(cache[f]){filtra();return;}
     if(cargando)return;
     cargando=true; nres.textContent='Cargando índice…';
-    fetch('indice-XII.json').then(function(r){return r.json();})
-      .then(function(j){datos=j; filtra();})
-      .catch(function(){nres.textContent='No se pudo cargar el índice; usa el archivo mensual de abajo.';});
-  });
+    fetch(f).then(function(r){return r.json();})
+      .then(function(j){cache[f]=j; cargando=false; filtra();})
+      .catch(function(){cargando=false; nres.textContent='No se pudo cargar el índice; usa el archivo mensual.';});
+  }
+  caja.addEventListener('input',carga);
+  if(sel) sel.addEventListener('change',function(){if(caja.value.trim())carga();});
 })();
 </script>
 
 </main>
 <footer>
-  <p>Generado el 2026-08-01 00:02 · Proyecto personal e independiente: sin afiliación, sin publicidad,
+  <p>Generado el 2026-10-12 19:04 · Proyecto personal e independiente: sin afiliación, sin publicidad,
   con <a href="../metodologia.html">metodología pública</a>.</p>
   <p class="nota">Los titulares enlazan a su medio; los textos pertenecen a sus autores.
   Las etiquetas, el contraste y las anclas son análisis propio.</p>
