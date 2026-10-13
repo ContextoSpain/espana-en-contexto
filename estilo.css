@@ -217,3 +217,37 @@ border-radius:6px;background:#fff;margin:0 .4em .4em 0}
 @media (max-width:640px){.reparto{grid-template-columns:1fr}
 .leg-cifras{margin-left:0;flex-basis:100%}
 ul.grupos{gap:.2em .7em;font-size:.84rem}}
+.tema-notas{background:var(--panel);border:1px solid var(--linea);border-radius:8px;
+padding:8px 14px 8px 2em;margin:10px 0;font-size:.9rem;color:#3a3a3a}
+.tema-notas li{margin:.15em 0}
+.tema-filtro{position:sticky;top:0;z-index:2;background:var(--fondo);padding:8px 0;
+border-bottom:1px solid var(--linea);margin:10px 0}
+.tema-filtro .rot{font-size:.86rem;color:var(--suave)}
+.tema-filtro button.chip{cursor:pointer;margin:2px 3px 2px 0;font:inherit;font-size:.8rem}
+.tema-filtro button.chip[aria-pressed="true"]{border-color:var(--marca);background:var(--marca);
+color:#fff}
+.tema-filtro .nota{margin:.3em 0 0}
+details.tema-par{border-top:1px solid var(--linea)}
+details.tema-par>summary h3 .suave{font-size:.82em}
+table.tema-prom td:first-child,table.tema-prom td:nth-child(4){white-space:nowrap;text-align:center}
+.v{display:inline-block;min-width:1.7em;text-align:center;border-radius:4px;font-weight:700;
+font-size:.78rem;padding:1px 3px;line-height:1.35}
+.v-S{background:var(--marca);color:#fff}.v-N{background:#4a4a4a;color:#fff}
+.v-A{background:#e3d6d6;color:#3a3a3a}.v-x{color:var(--suave);font-weight:400}
+a.vchip{display:inline-flex;gap:5px;align-items:center;font-size:.8rem;text-decoration:none;
+border:1px solid var(--linea);border-radius:5px;padding:1px 6px 1px 1px;margin:1px 4px 2px 0;
+color:var(--tinta);background:#fff;white-space:nowrap}
+a.vchip:hover,a.pchip:hover{border-color:var(--acento)}
+a.pchip{font-size:.8rem;border:1px solid var(--linea);border-radius:5px;padding:0 6px;
+margin-right:4px;text-decoration:none;color:var(--tinta);background:#fff;white-space:nowrap}
+.controles{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:.86rem;margin:6px 0}
+table.tema-vot tr.nolig{display:none}
+table.tema-vot.todas tr.nolig{display:table-row}
+table.tema-vot th.act,table.tema-vot td.act{text-align:center;padding:.42em .25em}
+table.tema-vot td.res{white-space:nowrap;font-variant-numeric:tabular-nums}
+table.tema-vot details.det summary{color:var(--tinta);font-size:.88rem}
+table.tema-vot details.det p{margin:.35em 0;font-size:.86rem}
+.col-on{background:#f7e4e7 !important}
+tr.diana td{background:#fff3c9 !important}
+.hilo-rel{margin:.9em 0 .2em;font-size:.92rem}
+ul.tema-fuera{font-size:.9rem}
