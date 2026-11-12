@@ -292,3 +292,17 @@ ul.grupos{gap:.2em .7em;font-size:.84rem}
 .hemi.mini{flex-basis:100%;width:100%}
 .cifras b{font-size:1.25rem}
 }
+
+/* ── Partidos: casos uno a uno, sin totales ───────────────────────────────── */
+.bloque-partido{margin:1.6em 0}
+.caso{background:var(--panel);border:1px solid var(--linea);border-radius:var(--r2);padding:.8em 1em;margin:.8em 0}
+.caso h3{margin:0 0 .2em;font-size:1.05rem}
+.estado{margin:0 0 .5em}
+.estado-et{display:inline-block;background:var(--marca-claro);color:var(--marca);border-radius:var(--r1);padding:.05em .5em;font-weight:600;font-size:.9rem}
+.etq{display:inline-block;border:1px dashed var(--linea-2);border-radius:var(--r1);padding:0 .45em;font-size:.82rem;color:var(--suave)}
+.caso-datos{display:grid;grid-template-columns:minmax(9em,13em) 1fr;gap:.2em .8em;margin:0;font-size:.93rem}
+.caso-datos dt{color:var(--suave)}
+.caso-datos dd{margin:0}
+.reacciones li{margin:.5em 0}
+.recuadro{background:var(--pista);border-radius:var(--r2);padding:.6em 1em;margin:1.4em 0}
+@media (max-width:640px){.caso-datos{grid-template-columns:1fr}.caso-datos dt{font-weight:600}}
