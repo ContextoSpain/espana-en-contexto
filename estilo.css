@@ -305,4 +305,22 @@ ul.grupos{gap:.2em .7em;font-size:.84rem}
 .caso-datos dd{margin:0}
 .reacciones li{margin:.5em 0}
 .recuadro{background:var(--pista);border-radius:var(--r2);padding:.6em 1em;margin:1.4em 0}
+.bloque-partido>h3{margin:1.1em 0 .3em;font-size:1.02rem}
+.cita-ds{border-left:3px solid var(--linea-2);margin:.9em 0;padding:.1em 0 .1em 1em}
+.cita-ds p{margin:.3em 0}
+.cita-ds footer{font-size:.88rem;color:var(--suave)}
+details.como ul{margin:.4em 0 .2em;padding-left:1.2em;font-size:.9rem;color:var(--suave)}
+.hecho-medios{border-left:3px solid var(--linea-2);margin:.9em 0;padding:.1em 0 .1em 1em}
+.hecho-medios p{margin:.3em 0}
+.hecho-medios ul{margin:.4em 0 .2em;padding-left:1.1em}
+.hecho-medios li{margin:.3em 0}
+ul.limites-medios{margin:.2em 0 .6em;padding-left:1.2em;font-size:.9rem;color:var(--suave)}
+span.vchip{display:inline-block;font-size:.8rem;color:var(--suave);margin:1px 8px 2px 0;white-space:nowrap}
+.comp-texto{margin:0 0 .2em;font-size:1.02rem}
+.comp-n{display:inline-block;min-width:1.5em;font-weight:700;color:var(--suave)}
+.comp>.nota{margin:0 0 .6em}
+.comp .caso-datos dd{margin-bottom:.35em}
+details.como li b{color:var(--tinta-2)}
+.vgrupo{margin:0 0 .55em}.vgrupo:last-child{margin-bottom:0}
+.vasunto{display:block;font-size:.82rem;line-height:1.3;margin-bottom:2px}
 @media (max-width:640px){.caso-datos{grid-template-columns:1fr}.caso-datos dt{font-weight:600}}
