@@ -409,6 +409,27 @@ border:1px solid var(--linea);border-radius:var(--r2);margin:.55em 0;overflow:hi
 .pf-prueba{font-size:.88rem;color:var(--tinta-2);display:-webkit-box;-webkit-line-clamp:3;
 -webkit-box-orient:vertical;overflow:hidden}
 .pf-mas{display:inline-block;margin-top:.3em;font-size:.85rem;text-decoration:none;font-weight:600}
+header nav{gap:2px 11px}
+header nav a{font-size:.9rem}
+.hero{margin:.4em 0 1.2em}
+.hero h1{font-size:2.1rem;max-width:22ch}
+.hero .entrada{font-size:1.08rem}
+.accesos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9em;margin:1em 0 1.6em}
+a.acceso{display:flex;flex-direction:column;gap:.25em;background:var(--panel);border:1px solid var(--linea-2);
+border-top:5px solid var(--marca);border-radius:var(--r2);padding:.9em 1.1em;text-decoration:none;color:var(--tinta)}
+a.acceso:hover{border-color:var(--acento);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+a.acceso b{font-size:1.3rem;color:var(--marca)}
+a.acceso .rot,.semana-tema>.nota{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--suave)}
+a.acceso span:last-child{font-size:.92rem;color:var(--tinta-2)}
+.semana{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9em;margin:.8em 0}
+.semana-tema{background:var(--panel);border:1px solid var(--linea);border-radius:var(--r2);padding:.8em 1em}
+.semana-tema h3{margin:0 0 .1em;font-size:1.12rem}
+.semana-tema h3 a{text-decoration:none}
+.semana-tema>.nota{margin:0 0 .4em}
+.semana-tema ul{margin:.2em 0 .5em;padding-left:1.1em;font-size:.9rem}
+.semana-tema li{margin:.25em 0}
+.mas-web{padding-left:1.2em}
+.mas-web li{margin:.25em 0}
 table.datos{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--panel)}
 table.datos th,table.datos td{border-bottom:1px solid var(--linea);padding:.35em .55em;text-align:left;vertical-align:top}
 table.datos tr:first-child th{position:sticky;top:0;background:var(--pista);font-size:.78rem;z-index:1}

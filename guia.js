@@ -5,11 +5,10 @@ function hay(f){return !!document.querySelector('header nav a[href$="'+f+'"]');}
 var sitio=(document.querySelector('.sitio')||{}).textContent||'Esta web';
 var pasos=[
  {t:'Cómo usar esta web',h:'<p><b>'+sitio+'</b> reúne lo que cada partido prometió, dijo y votó, con la prueba enlazada. No recomienda el voto.</p><p>El menú va de lo más sencillo a lo más detallado. Este recorrido dura un minuto.</p>'},
- {t:'Hoy',ir:'index.html',h:'<p>Las noticias del día en medios de distinta orientación, una junto a otra, con su contexto.</p>'},
  {t:'Promesas',ir:'partidos/promesas.html',si:'partidos/promesas.html',h:'<p><b>Lo más rápido.</b> Cada promesa del programa de 2023 y, a su lado, qué pasó con ella. Se elige un partido y un tema.</p>'},
  {t:'Partidos',ir:'partidos/index.html',si:'partidos/index.html',h:'<p><b>El detalle, partido a partido:</b> su programa, cada promesa con su prueba y sus votos, y lo que dijo en el Congreso frente a lo que votó.</p>'},
  {t:'Temas',ir:'temas.html',si:'temas.html',h:'<p><b>Un asunto y los nueve partidos a la vez:</b> vivienda, sanidad, trenes… Qué prometió cada uno, qué dijo y qué votó.</p>'},
- {t:'Votaciones y Hemeroteca',ir:'votaciones.html',h:'<p><b>El archivo.</b> Cada votación de las Cortes con el voto de cada diputado, y las noticias guardadas mes a mes.</p>'},
+ {t:'Votaciones, Actualidad y Hemeroteca',ir:'votaciones.html',h:'<p><b>El archivo.</b> Cada votación de las Cortes con el voto de cada diputado; los titulares de la semana en medios de distinta orientación, y las noticias guardadas mes a mes.</p>'},
  {t:'Anclas, Constitución y Metodología',ir:'metodologia.html',h:'<p><b>El fondo.</b> Los datos lentos (economía, calidad democrática…), la Constitución para consultarla y cómo se hace todo esto.</p><p>Esta guía se abre de nuevo con el botón «Guía» del menú.</p>'}
 ].filter(function(p){return !p.si||hay(p.si);});
 var d=document.createElement('dialog');
