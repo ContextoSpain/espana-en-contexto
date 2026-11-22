@@ -448,3 +448,53 @@ table.datos td.gob .nota{display:block;font-size:.74rem;line-height:1.25}
 .en-pagina{font-size:.8rem}
 .en-pagina a,.pf-filtro button{flex:none}
 .comp{padding:.75em .85em}}
+/* ── Buscador de promesas y fila de partidos de la portada ─────────────────── */
+.busca{background:var(--panel);border:1px solid var(--linea-2);border-radius:var(--r2);padding:.9em 1.1em;margin:1em 0}
+.busca[hidden]{display:none}
+.busca label{display:block;font-weight:700;color:var(--marca);margin-bottom:.3em}
+.busca input{font:inherit;font-size:1.05rem;width:100%;padding:.5em .8em;border:2px solid var(--linea-2);border-radius:999px;
+background:var(--fondo);color:var(--tinta)}
+.busca input:focus{outline:0;border-color:var(--acento);background:#fff}
+.busca-ejs{margin:.5em 0 0;font-size:.84rem;display:flex;flex-wrap:wrap;gap:.3em .4em;align-items:center}
+.busca .rot,.elige-partido .rot{color:var(--suave)}
+.busca-ej{font:inherit;border:1px solid var(--linea-2);background:var(--pista);border-radius:999px;padding:.05em .7em;
+cursor:pointer;color:var(--tinta-2)}
+.busca-ej:hover{border-color:var(--acento);color:var(--acento)}
+.busca-info{margin:.6em 0 0}
+.busca-info:empty{display:none}
+.busca-partido{margin:1em 0 .3em;font-size:1.02rem;padding-left:.55em;border-left:7px solid var(--color-partido,var(--marca))}
+a.busca-fila{display:block;text-decoration:none;color:var(--tinta);background:var(--fondo);border:1px solid var(--linea);
+border-left:5px solid var(--fam,var(--linea-2));border-radius:var(--r1);padding:.5em .8em;margin:.35em 0;overflow-wrap:anywhere}
+a.busca-fila:hover{border-color:var(--acento);border-left-color:var(--fam,var(--acento));background:#fff}
+.busca-fila span{display:block}
+.busca-fila .estado-et{display:inline-block}
+.busca-tema{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--suave)}
+.busca-texto{font-size:.95rem}
+.busca-paso{font-size:.86rem;color:var(--tinta-2);margin-top:.25em}
+.busca-res>.nota{margin-top:.9em}
+.elige-partido{display:flex;flex-wrap:wrap;gap:.4em .45em;align-items:center;margin:.9em 0 1.3em}
+.elige-partido .rot{flex-basis:100%;font-size:.92rem}
+/* ── «Copiar enlace» de cada promesa y resalte de la promesa a la que se llega por un enlace ── */
+.copia-enlace{font:inherit;font-size:.76rem;border:1px solid var(--linea-2);background:var(--panel);color:var(--tinta-2);
+border-radius:999px;padding:.05em .75em;cursor:pointer;white-space:nowrap}
+.copia-enlace:hover{border-color:var(--acento);color:var(--acento)}
+.copia-enlace.ok{background:#e2f1e8;border-color:#3b8a5f;color:#1f5c3b}
+.comp-meta .copia-enlace{float:right;margin-left:.6em}
+.pf-paso .copia-enlace{margin-left:.7em}
+.comp-meta{display:flow-root}
+.comp[id]{scroll-margin-top:3.6em}
+.comp:target{box-shadow:0 0 0 3px var(--acento);background:#fdfdf6}
+/* ── «Lo esencial» al principio de cada tema ── */
+.esencial{background:var(--marca-claro);border-left:6px solid var(--marca);border-radius:var(--r2);padding:.8em 1.1em .6em;margin:1em 0 1.4em}
+.esencial-t{margin:0 0 .3em;font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;font-weight:700;color:var(--marca)}
+.esencial ul{margin:0;padding-left:1.15em}
+.esencial li{margin:.4em 0}
+.esencial .nota{margin:.5em 0 0;font-size:.8rem}
+/* ── «En su programa de 2026»: etiqueta neutra (no es una valoración) ── */
+.estado-et.ahora-et{background:var(--pista);color:var(--tinta-2);border:1px solid var(--linea-2)}
+.pf-ahora{margin:.6em 0 .2em;padding-top:.5em;border-top:1px dashed var(--linea-2);font-size:.9rem}
+.pf-ahora .pf-rot{display:block}
+.ahora-nota{border-left:4px solid var(--linea-2);padding-left:.7em}
+.elige-partido a.partido{font-size:.92rem;font-weight:600;text-decoration:none;color:var(--tinta);background:var(--panel);
+border:1px solid var(--linea-2);border-left:7px solid var(--color-partido,var(--marca));border-radius:999px;padding:.15em .85em}
+.elige-partido a.partido:hover{border-color:var(--acento);border-left-color:var(--color-partido,var(--marca));color:var(--acento)}

@@ -5,7 +5,7 @@ function hay(f){return !!document.querySelector('header nav a[href$="'+f+'"]');}
 var sitio=(document.querySelector('.sitio')||{}).textContent||'Esta web';
 var pasos=[
  {t:'Cómo usar esta web',h:'<p><b>'+sitio+'</b> reúne lo que cada partido prometió, dijo y votó, con la prueba enlazada. No recomienda el voto.</p><p>El menú va de lo más sencillo a lo más detallado. Este recorrido dura un minuto.</p>'},
- {t:'Promesas',ir:'partidos/promesas.html',si:'partidos/promesas.html',h:'<p><b>Lo más rápido.</b> Cada promesa del programa de 2023 y, a su lado, qué pasó con ella. Se elige un partido y un tema.</p>'},
+ {t:'Promesas',ir:'partidos/promesas.html',si:'partidos/promesas.html',h:'<p><b>Lo más rápido.</b> Cada promesa del programa de 2023 y, a su lado, qué pasó con ella. Se elige un partido y un tema, o se busca una palabra («alquiler», «pensiones»…).</p>'},
  {t:'Partidos',ir:'partidos/index.html',si:'partidos/index.html',h:'<p><b>El detalle, partido a partido:</b> su programa, cada promesa con su prueba y sus votos, y lo que dijo en el Congreso frente a lo que votó.</p>'},
  {t:'Temas',ir:'temas.html',si:'temas.html',h:'<p><b>Un asunto y los nueve partidos a la vez:</b> vivienda, sanidad, trenes… Qué prometió cada uno, qué dijo y qué votó.</p>'},
  {t:'Votaciones, Actualidad y Hemeroteca',ir:'votaciones.html',h:'<p><b>El archivo.</b> Cada votación de las Cortes con el voto de cada diputado; los titulares de la semana en medios de distinta orientación, y las noticias guardadas mes a mes.</p>'},
@@ -36,4 +36,20 @@ if(!ya)abre();
 var up=document.createElement('a');up.href='#';up.className='arriba';up.textContent='↑ Arriba';up.hidden=true;
 document.body.appendChild(up);
 window.addEventListener('scroll',function(){up.hidden=window.scrollY<900;},{passive:true});
+// «Copiar enlace» en cada promesa: para enviar a alguien una promesa concreta con su prueba, no la página entera.
+function copia(u,b){
+ function ok(){var t=b.textContent;b.textContent='Enlace copiado ✓';b.classList.add('ok');
+  setTimeout(function(){b.textContent=t;b.classList.remove('ok');},2200);}
+ function a_mano(){var a=document.createElement('textarea');a.value=u;a.setAttribute('readonly','');
+  a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();var r=false;
+  try{r=document.execCommand('copy');}catch(e){}document.body.removeChild(a);
+  if(r)ok();else window.prompt('Copia este enlace:',u);}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(ok,a_mano);else a_mano();}
+function boton(u){var b=document.createElement('button');b.type='button';b.className='copia-enlace';
+ b.textContent='Copiar enlace';b.title='Copia la dirección de esta promesa, con su prueba, para enviarla';
+ b.onclick=function(){copia(u,b);};return b;}
+var aqui=location.href.split('#')[0].split('?')[0];
+[].forEach.call(document.querySelectorAll('article.comp[id]'),function(a){
+ var m=a.querySelector('.comp-meta');if(m)m.appendChild(boton(aqui+'#'+a.id));});
+[].forEach.call(document.querySelectorAll('.pf-fila a.pf-mas'),function(a){a.parentNode.appendChild(boton(a.href));});
 })();
