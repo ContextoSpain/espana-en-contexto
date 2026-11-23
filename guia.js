@@ -5,7 +5,8 @@ function hay(f){return !!document.querySelector('header nav a[href$="'+f+'"]');}
 var sitio=(document.querySelector('.sitio')||{}).textContent||'Esta web';
 var pasos=[
  {t:'Cómo usar esta web',h:'<p><b>'+sitio+'</b> reúne lo que cada partido prometió, dijo y votó, con la prueba enlazada. No recomienda el voto.</p><p>El menú va de lo más sencillo a lo más detallado. Este recorrido dura un minuto.</p>'},
- {t:'Promesas',ir:'partidos/promesas.html',si:'partidos/promesas.html',h:'<p><b>Lo más rápido.</b> Cada promesa del programa de 2023 y, a su lado, qué pasó con ella. Se elige un partido y un tema, o se busca una palabra («alquiler», «pensiones»…).</p>'},
+ {t:'Portada y buscador',ir:'index.html',si:'partidos/promesas.html',h:'<p><b>Lo más directo.</b> En la portada hay una caja: escribe una palabra («alquiler», «sanidad», «Ucrania»…) y sale lo que cada partido prometió, lo que se dijo en el Congreso y las votaciones, cada cosa con su prueba.</p><p>Si te equivocas al escribir, te propone la palabra; si la web no trata el asunto, te lo dice.</p>'},
+ {t:'Promesas',ir:'partidos/promesas.html',si:'partidos/promesas.html',h:'<p><b>Promesa a promesa.</b> Cada promesa del programa de 2023 y, a su lado, qué pasó con ella. Se elige un partido y, si se quiere, un tema.</p>'},
  {t:'Partidos',ir:'partidos/index.html',si:'partidos/index.html',h:'<p><b>El detalle, partido a partido:</b> su programa, cada promesa con su prueba y sus votos, y lo que dijo en el Congreso frente a lo que votó.</p>'},
  {t:'Temas',ir:'temas.html',si:'temas.html',h:'<p><b>Un asunto y los nueve partidos a la vez:</b> vivienda, sanidad, trenes… Qué prometió cada uno, qué dijo y qué votó.</p>'},
  {t:'Votaciones, Actualidad y Hemeroteca',ir:'votaciones.html',h:'<p><b>El archivo.</b> Cada votación de las Cortes con el voto de cada diputado; los titulares de la semana en medios de distinta orientación, y las noticias guardadas mes a mes.</p>'},
