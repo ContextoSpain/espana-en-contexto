@@ -461,6 +461,7 @@ background:var(--fondo);color:var(--tinta)}
 cursor:pointer;color:var(--tinta-2)}
 .busca-ej:hover{border-color:var(--acento);color:var(--acento)}
 .busca-info{margin:.6em 0 0}
+.busca-tema-mas{margin:.5em 0 0}
 .busca-info:empty{display:none}
 .busca-partido{margin:1em 0 .3em;font-size:1.02rem;padding-left:.55em;border-left:7px solid var(--color-partido,var(--marca))}
 a.busca-fila{display:block;text-decoration:none;color:var(--tinta);background:var(--fondo);border:1px solid var(--linea);
