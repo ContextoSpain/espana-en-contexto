@@ -53,4 +53,14 @@ var aqui=location.href.split('#')[0].split('?')[0];
 [].forEach.call(document.querySelectorAll('article.comp[id]'),function(a){
  var m=a.querySelector('.comp-meta');if(m)m.appendChild(boton(aqui+'#'+a.id));});
 [].forEach.call(document.querySelectorAll('.pf-fila a.pf-mas'),function(a){a.parentNode.appendChild(boton(a.href));});
+// En el móvil, las entradas largas se pliegan a cuatro líneas con un «Leer más»: medido el 25-11-2026, en las
+// páginas de tema había que pasar entre una y dos pantallas de texto antes de llegar a lo primero útil. Sin
+// JavaScript no se pliega nada: el texto sigue entero en la página.
+if(window.matchMedia&&matchMedia('(max-width:640px)').matches){
+ [].forEach.call(document.querySelectorAll('p.entrada, p.nota, p.aviso'),function(p){
+  if(!p.closest||p.closest('details,article,form,dialog,table,header,footer')||p.scrollHeight<170)return;
+  p.classList.add('plegado');var b=document.createElement('button');b.type='button';b.className='leer-mas';
+  b.textContent='Leer más';b.setAttribute('aria-expanded','false');
+  b.onclick=function(){var c=p.classList.toggle('plegado');b.textContent=c?'Leer más':'Leer menos';b.setAttribute('aria-expanded',c?'false':'true');};
+  p.parentNode.insertBefore(b,p.nextSibling);});}
 })();

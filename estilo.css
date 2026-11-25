@@ -462,6 +462,8 @@ cursor:pointer;color:var(--tinta-2)}
 .busca-ej:hover{border-color:var(--acento);color:var(--acento)}
 .busca-info{margin:.6em 0 0}
 .busca-tema-mas{margin:.5em 0 0}
+.plegado{display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.leer-mas{font:inherit;font-size:.86rem;font-weight:600;background:none;border:0;padding:.15em 0 .5em;color:var(--acento);cursor:pointer}
 .busca-sec{margin-top:1.6em;padding-top:.9em;border-top:1px solid var(--linea-2)}
 .busca-info:empty{display:none}
 .busca-partido{margin:1em 0 .3em;font-size:1.02rem;padding-left:.55em;border-left:7px solid var(--color-partido,var(--marca))}
