@@ -503,3 +503,61 @@ border-radius:999px;padding:.05em .75em;cursor:pointer;white-space:nowrap}
 .elige-partido a.partido{font-size:.92rem;font-weight:600;text-decoration:none;color:var(--tinta);background:var(--panel);
 border:1px solid var(--linea-2);border-left:7px solid var(--color-partido,var(--marca));border-radius:999px;padding:.15em .85em}
 .elige-partido a.partido:hover{border-color:var(--acento);border-left-color:var(--color-partido,var(--marca));color:var(--acento)}
+/* ── Móvil, 26-11-2026 (informe de estética): letra de lectura a 16 px, zonas táctiles de 44 px, tablas de los
+   temas apiladas en fichas y «Copiar enlace» como icono. Medido antes: en «Vivienda» el 98 % del texto iba a 14 px o
+   menos; 210 de 224 controles de una página de partido bajaban de 44 px; dos columnas de votos quedaban fuera. ── */
+.copia-enlace{display:inline-flex;align-items:center;justify-content:center;gap:.3em;min-width:2.4em;min-height:2.4em;
+padding:0 .3em;border:0;background:transparent;color:var(--suave)}
+.copia-enlace svg{width:1.15em;height:1.15em}
+.desliza{margin:.2em 0;font-size:.85rem;color:var(--suave);text-align:right}
+@media (max-width:640px){
+.comp .caso-datos,.prog-tarjeta,.pf-paso,.busca-paso,.semana-tema ul,a.acceso span:last-child,.pf-ahora,.ficha-nota{font-size:1rem}
+.pf-prueba{font-size:.95rem}
+.comp-texto{font-size:1.12rem}
+.nota,.comp-meta{font-size:.94rem}
+table,table.datos{font-size:.95rem}
+header nav a{display:flex;align-items:center;min-height:44px}
+.elige-partido a.partido,.busca-ej,a.pchip,.guia-btn{display:inline-flex;align-items:center;min-height:44px;
+padding-top:0;padding-bottom:0}
+/* en las barras fijas, algo menos: con 44 px la de los temas ocupaba tres filas */
+.tema-filtro{display:flex;flex-wrap:nowrap;align-items:center;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+.tema-filtro[hidden]{display:none}
+.tema-filtro::-webkit-scrollbar{display:none}
+.tema-filtro .rot{flex:none;margin-right:.3em}
+.tema-filtro button.chip{flex:none;min-height:40px;padding-left:.75em;padding-right:.75em}
+.en-pagina a,.pf-filtro button{display:inline-flex;align-items:center;min-height:40px;padding-top:0;padding-bottom:0}
+.leer-mas{min-height:44px;padding:0}
+.copia-enlace{min-width:44px;min-height:44px}
+details.det>summary,details.como>summary,details.ancla-det>summary{padding:.55em 0}
+.pf-mas{padding:.6em 0}
+a.vchip{min-height:40px}
+details>summary{padding-top:.45em;padding-bottom:.45em}
+.cita-ds,.hecho-medios{padding-left:.65em}
+.caso{padding:.75em .8em}
+/* tablas de los temas: cada fila, una ficha */
+table.tema-prom,table.tema-prom tbody,table.tema-vot,table.tema-vot tbody{display:block;width:auto;border:0;background:none}
+table.tema-prom tr,table.tema-vot tr{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1em .6em;
+background:var(--panel);border:1px solid var(--linea);border-radius:var(--r1);padding:.55em .75em;margin:0 0 .5em}
+table.tema-prom tr:first-child,table.tema-vot tr:first-child{display:none}
+table.tema-prom td,table.tema-vot td{display:block;border:0;padding:0;background:none !important;
+white-space:normal !important;text-align:left !important;position:static !important}
+table.tema-prom td:first-child{order:0;font-weight:700;color:var(--suave)}
+table.tema-prom td:first-child::before{content:"n.º "}
+table.tema-prom td:nth-child(3){order:1}
+table.tema-prom td:nth-child(4){order:2;color:var(--suave)}
+table.tema-prom td:nth-child(4):not(:empty)::before{content:"pág. "}
+table.tema-prom td:nth-child(2){order:3;flex-basis:100%}
+table.tema-prom td:nth-child(5){order:4;flex-basis:100%;margin-top:.35em;padding-top:.35em;border-top:1px dashed var(--linea)}
+table.tema-prom td:nth-child(5)::before{content:"Votaciones relacionadas";display:block;font-size:.72rem;
+text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--suave)}
+table.tema-prom .chip{margin-left:0}
+table.tema-vot td.res{order:0;color:var(--suave)}
+table.tema-vot td.res:nth-child(3)::before{content:"sí / no / abst.: "}
+table.tema-vot td:not(.res):not(.act){order:1;flex-basis:100%}
+table.tema-vot td.act{order:2;display:inline-flex;align-items:center;gap:.3em;margin:.2em .5em 0 0}
+table.tema-vot td.act::before{content:attr(data-a);font-size:.85rem;color:var(--tinta-2)}
+table.tema-vot td.act:empty{display:none}
+table.tema-vot tr.nolig{display:none}
+table.tema-vot.todas tr.nolig{display:flex}
+table.tema-vot td.col-on{outline:2px solid var(--marca);outline-offset:1px;border-radius:4px}
+}

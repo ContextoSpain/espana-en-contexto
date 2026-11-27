@@ -111,7 +111,7 @@ function busca(){
    corta(m26,25,'citas').forEach(function(m){fila(base+m[5],((datos.partidos[m[1]]||[m[1]])[0])+' · '+nomTema(m[2]),'«'+m[3]+'»',m[4]);});}
   if(mds.length){seccion('busca-ds','Lo que dijeron en el Congreso','Citas literales del Diario de Sesiones recogidas en los temas.');
    corta(mds,25,'citas').forEach(function(m){fila(base+m[5],((datos.partidos[m[1]]||[m[1]])[0])+' · '+nomTema(m[2]),'«'+m[3]+'»',m[4]);});}
-  if(vs.length){seccion('busca-vot','Votaciones de esta legislatura','Cada una lleva a su página, con el voto de cada grupo y de cada diputado.');
+  if(vs.length){seccion('busca-vot','Votaciones de esta legislatura','Cada una lleva a su página, con el voto de cada grupo y de cada formación.');
    vs.slice(0,10).forEach(function(x){var t=(x.b||'').replace(x.t||'','').replace(/^\s*(Congreso|Senado)\s*/,'').trim()||x.t||'';
     fila(base+'votaciones/'+x.file,x.c+' · '+fecha(x.f),t.length>260?t.slice(0,260).replace(/\s+\S*$/,'')+'…':t,x.k>1?x.k+' votaciones sobre este asunto ese día':'');});
    if(vs.length>10){var pv=el('p','nota','Se enseñan las 10 más recientes de '+vs.length+'. ');var av=el('a','','Buscar en todas las votaciones →');
